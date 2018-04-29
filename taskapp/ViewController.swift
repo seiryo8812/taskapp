@@ -39,7 +39,7 @@ class ViewController: UIViewController, UITableViewDelegate,  UITableViewDataSou
             taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: false)
             tableView.reloadData()
         }else{
-        taskArray = try! Realm().objects(Task.self).filter("category == %@", searchBar.text).sorted(byKeyPath: "date", ascending: false)
+            taskArray = try! Realm().objects(Task.self).filter("category == %@", searchBar.text!).sorted(byKeyPath: "date", ascending: false)
         tableView.reloadData()
         self.view.endEditing(true)
         }
@@ -50,7 +50,7 @@ class ViewController: UIViewController, UITableViewDelegate,  UITableViewDataSou
             taskArray = try! Realm().objects(Task.self).sorted(byKeyPath: "date", ascending: false)
             tableView.reloadData()
         }else{
-            taskArray = try! Realm().objects(Task.self).filter("category == %@", searchBar.text).sorted(byKeyPath: "date", ascending: false)
+            taskArray = try! Realm().objects(Task.self).filter("category == %@", searchBar.text!).sorted(byKeyPath: "date", ascending: false)
             tableView.reloadData()
             self.view.endEditing(true)
         }
